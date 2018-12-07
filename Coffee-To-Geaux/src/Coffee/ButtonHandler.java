@@ -9,6 +9,11 @@ public class ButtonHandler implements ActionListener {
     StaffLogin theApp3;
     CreateOrder theApp4;
     OrderProcessing theApp5;
+    PaymentPage theApp6;
+    CashPayment theApp7;
+    CardPayment theApp8;
+
+
     int diff;
 
     ButtonHandler(HomePage app, int d) {
@@ -31,11 +36,26 @@ public class ButtonHandler implements ActionListener {
         diff = d;
     }
 
-
     ButtonHandler(CreateOrder app4, int d) {
         theApp4 = app4;                                           //Create constructor for button handler class
         diff = d;
     }
+
+    ButtonHandler(PaymentPage app6, int d) {
+        theApp6 = app6;                                           //Create constructor for button handler class
+        diff = d;
+    }
+    ButtonHandler(CashPayment app7, int d) {
+        theApp7 = app7;                                           //Create constructor for button handler class
+        diff = d;
+    }
+
+    ButtonHandler(CardPayment app8, int d) {
+        theApp8 = app8;                                           //Create constructor for button handler class
+        diff = d;
+    }
+
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -50,13 +70,14 @@ public class ButtonHandler implements ActionListener {
         }
 
         if(diff == 3){
-            if(theApp2.validateLogin() == true){
+            if(theApp2.validateLoginC() == true){
                 CreateOrder cO = new CreateOrder();
                 cO.setVisible(true);
             }
         }
 
         if (diff == 4){
+            theApp4.totalCostMethod();
             OrderProcessing oP = new OrderProcessing();
             oP.setVisible(true);
         }
@@ -64,6 +85,31 @@ public class ButtonHandler implements ActionListener {
         if (diff == 5){
             PaymentPage pP = new PaymentPage();
             pP.setVisible(true);
+        }
+
+        if (diff == 6){
+            if(theApp3.validateLoginS() == true){
+                ViewOrder vO = new ViewOrder();
+                vO.setVisible(true);
+            }
+        }
+
+        if (diff == 7){
+            CardPayment cardP = new CardPayment();
+            cardP.setVisible(true);
+        }
+
+        if (diff == 8){
+            CashPayment cashP = new CashPayment();
+            cashP.setVisible(true);
+        }
+
+        if (diff == 9){
+            System.exit(0);
+        }
+
+        if (diff == 10){
+            System.exit(0);
         }
     }
 }

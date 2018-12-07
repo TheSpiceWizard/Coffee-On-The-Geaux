@@ -7,15 +7,17 @@ import java.io.*;
 import javax.swing.*;
 
 public class CustomerLogin extends JFrame {
+    Color cl = new Color(177, 156, 217);
+    Color cl2 = new Color(253, 253, 150);
     JPanel customerPanel;
     JButton customerButton;
     TextField userFieldC, passFieldC;
     JLabel userLabelC, passLabelC;
-    JLabel loginResult;
+    JLabel loginResultC;
 
     public CustomerLogin () {
         customerPanel = new JPanel();
-        customerPanel.setBackground(Color.YELLOW);
+        customerPanel.setBackground(cl2);
 
         //Elements for Customer Login Panel
         userFieldC = new TextField("", 20); // get a Text Field
@@ -23,10 +25,10 @@ public class CustomerLogin extends JFrame {
         userLabelC = new JLabel("Customer User Name", Label.RIGHT);
         passLabelC = new JLabel("Customer Password", Label.RIGHT);
         customerButton = new JButton("Login");
-        loginResult = new JLabel("RESULT");
+        loginResultC = new JLabel("RESULT");
 
-        userLabelC.setForeground(Color.magenta);
-        passLabelC.setForeground(Color.magenta);
+        userLabelC.setForeground(cl);
+        passLabelC.setForeground(cl);
 
         //Add elements to Customer Login Panel
         customerPanel.add(userLabelC); // add label to panel
@@ -34,7 +36,7 @@ public class CustomerLogin extends JFrame {
         customerPanel.add(passLabelC); // add label to panel
         customerPanel.add(passFieldC); // add text field to panel
         customerPanel.add(customerButton);//add button
-        customerPanel.add(loginResult);
+        customerPanel.add(loginResultC);
         add(customerPanel);
         pack();
         setVisible(true); // make the frame visible
@@ -44,12 +46,11 @@ public class CustomerLogin extends JFrame {
     }
     
     //Method reads from "LoginInfo.txt" and checks if input from userFieldC is present
-    public boolean validateLogin(){
+    public boolean validateLoginC(){
     	try{
-    	Scanner fileIn = new Scanner(new File("LoginInfo.txt"));
+    	Scanner fileIn = new Scanner(new File("LoginInfoCust.txt"));
     	
     	String toCheck = userFieldC.getText();
-    	System.out.print(toCheck);
     	
     	while(fileIn.hasNext()){
     		String checkUser = fileIn.next();
@@ -59,7 +60,7 @@ public class CustomerLogin extends JFrame {
     			return true;
     		}
     	}
-    	loginResult.setText("FAILED");
+    	loginResultC.setText("FAILED");
     	return false;
     	}catch(FileNotFoundException e){
     		

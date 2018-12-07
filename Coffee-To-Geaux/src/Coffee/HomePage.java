@@ -6,19 +6,21 @@ import javax.swing.*;
 public class HomePage extends JFrame {
     JPanel homePage;
     JButton homeButtonC, homeButtonS;
+    Color cl = new Color(177, 156, 217);
+    Color cl2 = new Color(253, 253, 150);
 
     public HomePage(){
         homePage = new JPanel();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setPreferredSize(new Dimension(700, 300));
-        homePage.setBackground(Color.YELLOW);
+        homePage.setBackground(cl2);
 
         //Elements for Home Panel
         homeButtonC = new JButton("Customer Login");
         homeButtonS = new JButton("Manager Login");
 
-        homeButtonC.setForeground(Color.magenta);
-        homeButtonS.setForeground(Color.magenta);
+        homeButtonC.setForeground(cl);
+        homeButtonS.setForeground(cl);
 
         //Add elements to Home Panel
         homePage.add(homeButtonC);

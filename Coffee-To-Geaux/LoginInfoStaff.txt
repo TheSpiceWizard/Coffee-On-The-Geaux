@@ -1,0 +1,2 @@
+staff1 password1
+staff2 password2
